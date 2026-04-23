@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Klickkk Digital — Digital Marketing Agency</title>
   <meta name="description" content="Klickkk Digital is a full-service digital marketing agency offering Influencer Marketing, Performance Marketing, SEO, Social Media Marketing, Marketplace Management, and Web Design & Development." />
+  <script>
+    (function () {
+      var host = location.hostname;
+      var proto = location.protocol;
+      // Force HTTPS
+      if (proto !== 'https:') {
+        location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+        return;
+      }
+      // Force www on custom domains (skip github.io and localhost)
+      if (host && !host.startsWith('www.') && !host.includes('github.io') && host !== 'localhost' && !host.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+        location.replace('https://www.' + location.host + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
