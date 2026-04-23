@@ -408,7 +408,7 @@ img, svg { display: block; }
   border-radius: var(--radius-lg);
   transition: transform var(--dur) var(--ease),
               border-color var(--dur) var(--ease);
-  cursor: default;
+  cursor: pointer;
 }
 
 .svc-card:hover {
