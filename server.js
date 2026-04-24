@@ -5,6 +5,7 @@ const { URL } = require('url');
 const { services } = require('./src/siteData');
 const {
   homePage,
+  aboutPage,
   servicesPage,
   servicePage,
   contactPage,
@@ -92,6 +93,7 @@ const serviceMap = new Map(services.map(service => [`/${service.slug}`, service]
 
 function renderRoute(pathname) {
   if (pathname === '/') return homePage();
+  if (pathname === '/about') return aboutPage();
   if (pathname === '/services') return servicesPage();
   if (pathname === '/contact') return contactPage();
   if (pathname === '/privacy-policy') return legalPage('privacy');
@@ -101,7 +103,8 @@ function renderRoute(pathname) {
       title: 'Projects',
       badge: 'Work',
       description: 'A focused look at how Klickkk Digital builds, launches, and improves growth campaigns.',
-      body: 'Project case studies can now be added from Node data instead of creating separate HTML files.'
+      body: 'Project case studies can now be added from Node data instead of creating separate HTML files.',
+      reviewsBeforeFooter: true
     });
   }
   if (pathname === '/academy') {
