@@ -1,4 +1,5 @@
 const fs = require('fs');
+const https = require('https');
 const http = require('http');
 const path = require('path');
 const { URL } = require('url');
@@ -19,6 +20,9 @@ const {
 
 const rootDir = __dirname;
 const port = process.env.PORT || 8080;
+const framerOrigin = 'https://klickkk.framer.website';
+const framerCache = new Map();
+const framerCacheTtl = 60 * 1000;
 
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
@@ -53,6 +57,74 @@ function renderPage(res, html, statusCode = 200) {
     'Content-Type': 'text/html; charset=utf-8',
     'Cache-Control': 'no-cache'
   }, html);
+}
+
+function normalizeFramerPath(pathname) {
+  const aliases = new Map([
+    ['/about', '/about-us'],
+    ['/contact', '/contact-us'],
+    ['/privacy-policy', '/policies/privacy-policy'],
+    ['/terms-of-service', '/policies/terms-of-service'],
+    ['/influencer-marketing', '/services/influencer-marketing'],
+    ['/marketplace-management', '/services/marketplaces-management'],
+    ['/marketplaces-management', '/services/marketplaces-management'],
+    ['/performance-marketing', '/services/performance-marketing'],
+    ['/search-engine-optimization', '/services/search-engine-optimization'],
+    ['/social-media-marketing', '/services/social-media-marketing'],
+    ['/web-design-development', '/services/web-design-development']
+  ]);
+
+  return aliases.get(pathname) || pathname;
+}
+
+function fetchFramerHtml(pathname, search = '', redirects = 0) {
+  const framerPath = normalizeFramerPath(pathname);
+  const cacheKey = `${framerPath}${search}`;
+  const cached = framerCache.get(cacheKey);
+
+  if (cached && Date.now() - cached.createdAt < framerCacheTtl) {
+    return Promise.resolve(cached.html);
+  }
+
+  return new Promise((resolve, reject) => {
+    const targetUrl = new URL(`${framerPath}${search}`, framerOrigin);
+    const request = https.get(targetUrl, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent': 'KlickkkDigitalMirror/1.0'
+      }
+    }, response => {
+      const location = response.headers.location;
+
+      if (location && response.statusCode >= 300 && response.statusCode < 400 && redirects < 4) {
+        response.resume();
+        const nextUrl = new URL(location, targetUrl);
+        fetchFramerHtml(nextUrl.pathname, nextUrl.search, redirects + 1).then(resolve, reject);
+        return;
+      }
+
+      if (!response.statusCode || response.statusCode >= 400) {
+        response.resume();
+        reject(new Error(`Framer responded with ${response.statusCode || 'unknown status'}`));
+        return;
+      }
+
+      let html = '';
+      response.setEncoding('utf8');
+      response.on('data', chunk => {
+        html += chunk;
+      });
+      response.on('end', () => {
+        framerCache.set(cacheKey, { html, createdAt: Date.now() });
+        resolve(html);
+      });
+    });
+
+    request.setTimeout(12000, () => {
+      request.destroy(new Error('Framer request timed out'));
+    });
+    request.on('error', reject);
+  });
 }
 
 function resolveStaticFile(urlPath) {
@@ -118,7 +190,7 @@ function renderRoute(pathname) {
   return null;
 }
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   const host = req.headers.host || '';
   const forwardedProto = req.headers['x-forwarded-proto'];
   const isLocal = host.startsWith('localhost') || host.startsWith('127.0.0.1');
@@ -138,20 +210,28 @@ const server = http.createServer((req, res) => {
     return redirect(res, `${pathname.slice(0, -5)}${requestUrl.search}`);
   }
 
+  const filePath = resolveStaticFile(pathname);
+  if (filePath) {
+    return serveFile(req, res, filePath);
+  }
+
+  if (filePath === null) {
+    return send(res, 403, { 'Content-Type': 'text/plain; charset=utf-8' }, 'Forbidden');
+  }
+
+  try {
+    const html = await fetchFramerHtml(pathname, requestUrl.search);
+    return renderPage(res, html);
+  } catch (error) {
+    console.error(`Unable to mirror Framer page ${pathname}:`, error.message);
+  }
+
   const rendered = renderRoute(pathname);
   if (rendered) {
     return renderPage(res, rendered);
   }
 
-  const filePath = resolveStaticFile(pathname);
-  if (!filePath) {
-    if (filePath === null) {
-      return send(res, 403, { 'Content-Type': 'text/plain; charset=utf-8' }, 'Forbidden');
-    }
-    return renderPage(res, notFoundPage(), 404);
-  }
-
-  return serveFile(req, res, filePath);
+  return renderPage(res, notFoundPage(), 404);
 });
 
 server.listen(port, () => {
