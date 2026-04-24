@@ -46,7 +46,7 @@ function header() {
         ${navLinks.map(link => `<a href="${link.href}" class="nav-link">${link.label}</a>`).join('')}
       </div>
       <div class="nav-right">
-        <a href="/contact" class="btn btn-primary">Get Started</a>
+        <a href="/contact-us" class="btn btn-primary">Get Started</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -57,7 +57,7 @@ function footer() {
   return `<footer class="footer framer-footer">
     <div class="container framer-footer-inner">
       <div class="framer-footer-nav-card">
-        <a href="/" class="footer-logo"><span class="logo-k">Klickkk</span><span class="logo-d">Digital</span></a>
+        <a href="/" class="footer-logo" aria-label="Klickkk Digital"><img src="${framerImages.footerLogo}" alt="Klickkk Digital"/></a>
         <nav class="framer-footer-nav" aria-label="Footer navigation">
           ${navLinks.map(link => `<a href="${link.href}">${link.label}</a>`).join('')}
         </nav>
@@ -101,7 +101,7 @@ function footer() {
       </div>
       <div class="framer-footer-bottom-card">
         <p>Copyright © 2025 | <a href="/">Klickkk Digital</a> | All Rights Reserved</p>
-        <div><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms Of Service</a></div>
+        <div><a href="/policies/privacy-policy">Privacy Policy</a><a href="/policies/terms-of-service">Terms Of Service</a></div>
       </div>
     </div>
   </footer>`;
@@ -224,10 +224,23 @@ function caseStudiesSection() {
   return `<section class="section kd-projects-section" id="projects">
     <div class="container">
       ${sectionHeading('Works', 'Case Studies')}
-      <div class="kd-project-grid">${caseStudies.map(([client, title], index) => `<a href="/projects" class="kd-project-card reveal"><img src="${framerImages.projects[index % framerImages.projects.length]}" alt="${client}"/><div><span>Projects</span><h3>${client}</h3><p>${title}</p><strong>Learn More</strong></div></a>`).join('')}</div>
+      <div class="kd-project-grid">${projectCards(caseStudies)}</div>
       <div class="kd-section-action"><a href="/projects" class="kd-orange-btn">View All Projects <span>↗</span></a></div>
     </div>
   </section>`;
+}
+
+function projectCards(items) {
+  return items.map(project => `<a href="/projects" class="kd-project-card reveal">
+    <img src="${project.image}" alt="${project.client}"/>
+    <div class="kd-project-content">
+      <span>Projects</span>
+      <h3>${project.client}</h3>
+      <p>${project.title}</p>
+      <div class="kd-project-metrics">${project.metrics.map(([value, label]) => `<strong>${value}<small>${label}</small></strong>`).join('')}</div>
+      <b>Learn More</b>
+    </div>
+  </a>`).join('');
 }
 
 function testimonialSection({ compact = false } = {}) {
@@ -268,9 +281,16 @@ function blogsSection() {
     <div class="container">
       ${sectionHeading('Blogs', 'Dive into our collection of engaging blog posts')}
       <div class="kd-section-action"><a href="/blogs" class="kd-orange-btn">Read Blogs <span>↗</span></a></div>
-      <div class="kd-blog-grid">${blogPosts.map(([date, category, title]) => `<a href="/blogs" class="kd-blog-card reveal"><span>${date}</span><em>${category}</em><h3>${title}</h3></a>`).join('')}</div>
+      <div class="kd-blog-grid">${blogCards(blogPosts)}</div>
     </div>
   </section>`;
+}
+
+function blogCards(items) {
+  return items.map(post => `<a href="/blogs" class="kd-blog-card reveal">
+    <img src="${post.image}" alt="${post.title}"/>
+    <div><span>${post.date}</span><em>${post.category}</em><h3>${post.title}</h3></div>
+  </a>`).join('');
 }
 
 function faqSection() {
@@ -286,20 +306,10 @@ function servicesPage() {
   return pageShell({
     title: 'Services - Klickkk Digital',
     description: "Explore Klickkk Digital's full-service digital marketing solutions, including influencer marketing, performance marketing, SEO, social media, marketplace management, and web design.",
-    body: `${pageHero({ title: 'Digital Marketing Services Built for Growth', badge: 'Services', description: 'From strategy to execution, our team brings together performance, content, search, marketplaces, and web experiences to grow your brand with measurable results.' })}
-    ${servicesSection()}
+    body: `${servicesSection()}
     ${ctaSection()}`,
     reviewsBeforeFooter: true
   });
-}
-
-function pageHero({ title, badge, description, current = '', parent }) {
-  return `<section class="svc-page-hero"><div class="container">
-    <div class="breadcrumb"><a href="/">Home</a>${parent ? `<span class="sep">/</span><a href="${parent.href}">${parent.label}</a>` : ''}<span class="sep">/</span><span class="current">${current || badge}</span></div>
-    <div class="svc-page-badge">${badge}</div>
-    <h1 class="svc-page-title">${title}</h1>
-    <p class="svc-page-sub">${description}</p>
-  </div></section>`;
 }
 
 function servicePage(service) {
@@ -307,8 +317,7 @@ function servicePage(service) {
   return pageShell({
     title: `${service.title} - Klickkk Digital`,
     description: service.meta,
-    body: `${pageHero({ title: service.hero, badge: 'Service', description: service.sub, current: service.title, parent: { label: 'Services', href: '/services' } })}
-    <section class="section offers-section"><div class="container"><div class="section-head"><div class="section-chip">What We Offer</div><h2>${service.title} That Delivers Real Results</h2><p>${service.description}</p></div><div class="offers-grid">${service.offers.map(offer => `<div class="offer-card reveal">${serviceIcon()}<h3>${offer}</h3><p>Planned, executed, and improved by a team focused on practical business outcomes.</p></div>`).join('')}</div></div></section>
+    body: `<section class="section offers-section page-first-section"><div class="container"><div class="section-head"><div class="section-chip">What We Offer</div><h2>${service.title} That Delivers Real Results</h2><p>${service.description}</p></div><div class="offers-grid">${service.offers.map(offer => `<div class="offer-card reveal">${serviceIcon()}<h3>${offer}</h3><p>Planned, executed, and improved by a team focused on practical business outcomes.</p></div>`).join('')}</div></div></section>
     <section class="section process-section"><div class="container"><div class="section-head"><div class="section-chip">How We Work</div><h2>Our ${service.title} <span style="color:#babbbb">Process</span></h2></div><div class="process-grid">${service.process.map((step, index) => `<div class="proc-card reveal"><div class="proc-num">${String(index + 1).padStart(2, '0')}</div><h3>${step}</h3><p>Each step keeps your brand goals, audience, and measurable results in focus.</p></div>`).join('')}</div></div></section>
     <section class="section other-services-section"><div class="container"><div class="section-head"><div class="section-chip">Explore More</div><h2>Our Other <span style="color:#babbbb">Services</span></h2></div><div class="other-svc-grid">${others.map(item => `<a href="/${item.slug}" class="other-svc-card reveal"><div class="other-svc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h4>${item.title}</h4><p>${item.description}</p></div><div class="other-svc-arrow">↗</div></a>`).join('')}</div></div></section>
     ${ctaSection()}`,
@@ -320,8 +329,7 @@ function aboutPage() {
   return pageShell({
     title: 'About Us - Klickkk Digital',
     description: 'Learn about Klickkk Digital, our digital marketing approach, experience, team values, and growth-focused work across India and the USA.',
-    body: `${pageHero({ title: 'About Klickkk Digital', badge: 'About Us', description: 'We combine strategy, creative execution, performance tracking, and consistent communication to help brands grow across digital channels.', current: 'About Us' })}
-    ${aboutStatsSection()}
+    body: `${aboutStatsSection()}
     ${brandSection()}
     ${specialitiesSection()}
     ${ctaSection()}`,
@@ -333,8 +341,7 @@ function contactPage() {
   return pageShell({
     title: 'Contact Us - Klickkk Digital',
     description: 'Get in touch with Klickkk Digital. Reach out to our team in India or the USA for a free consultation on your digital marketing needs.',
-    body: `${pageHero({ title: "Let's Build Something Amazing Together", badge: 'Get In Touch', description: "Ready to grow your brand? Reach out to our team and we'll get back to you within 24 hours with a tailored plan.", current: 'Contact Us' })}
-    <section class="container"><div class="contact-layout">
+    body: `<section class="container"><div class="contact-layout page-first-section">
       <div class="contact-info-wrap"><h2>Contact Information</h2><p>We're here to help. Reach out through any channel below or fill in the form.</p>
         ${[
           ['Email', '<a href="mailto:hello@klickkk.com">hello@klickkk.com</a>'],
@@ -347,6 +354,38 @@ function contactPage() {
       <div class="contact-form-box reveal"><h3>Send Us a Message</h3><p>Fill in the form below and our team will respond within 24 hours.</p>${contactForm()}</div>
     </div></section>`,
     reviewsBeforeFooter: true
+  });
+}
+
+function projectsPage() {
+  return pageShell({
+    title: 'Projects - Klickkk Digital',
+    description: 'A focused look at how Klickkk Digital builds, launches, and improves growth campaigns.',
+    body: `<section class="section kd-projects-section page-first-section"><div class="container">
+      ${sectionHeading('Works', 'Case Studies')}
+      <div class="kd-project-grid">${projectCards(caseStudies)}</div>
+    </div></section>`,
+    reviewsBeforeFooter: true
+  });
+}
+
+function blogsPage() {
+  return pageShell({
+    title: 'Blogs - Klickkk Digital',
+    description: 'Digital marketing ideas, guides, and updates from Klickkk Digital.',
+    body: `<section class="section kd-blogs-section page-first-section"><div class="container">
+      ${sectionHeading('Blogs', 'Dive into our collection of engaging blog posts')}
+      <div class="kd-blog-grid">${blogCards(blogPosts)}</div>
+    </div></section>`,
+    reviewsBeforeFooter: true
+  });
+}
+
+function reviewsPage() {
+  return pageShell({
+    title: 'Reviews - Klickkk Digital',
+    description: 'Client reviews and testimonials for Klickkk Digital.',
+    body: `<div class="page-first-section">${testimonialSection()}</div>`
   });
 }
 
@@ -365,8 +404,7 @@ function simplePage({ title, badge, description, body, reviewsBeforeFooter = fal
   return pageShell({
     title: `${title} - Klickkk Digital`,
     description,
-    body: `${pageHero({ title, badge, description, current: title })}
-    <section class="section"><div class="container"><div class="section-head"><div class="section-chip">${badge}</div><h2>${title}</h2><p>${body}</p></div></div></section>`,
+    body: `<section class="section page-first-section"><div class="container"><div class="section-head"><div class="section-chip">${badge}</div><h2>${title}</h2><p>${body}</p></div></div></section>`,
     reviewsBeforeFooter
   });
 }
@@ -377,8 +415,7 @@ function legalPage(kind) {
   return pageShell({
     title: `${title} - Klickkk Digital`,
     description: isPrivacy ? "Read Klickkk Digital's privacy policy." : "Read Klickkk Digital's terms and conditions.",
-    body: `${pageHero({ title, badge: 'Policy', description: isPrivacy ? 'How we collect, use, and protect information shared with Klickkk Digital.' : 'Terms governing use of our website and services.', current: title })}
-    <section class="section"><div class="container"><div class="contact-form-box"><h3>${title}</h3><p>${isPrivacy ? 'We use submitted contact information to respond to enquiries, deliver services, and improve communication. We do not sell personal information.' : 'By using this website or engaging our services, you agree to work with us under clear project terms, payment terms, and responsible website usage.'}</p><p>For questions, email <a href="mailto:hello@klickkk.com">hello@klickkk.com</a>.</p></div></div></section>`
+    body: `<section class="section page-first-section"><div class="container"><div class="contact-form-box"><h3>${title}</h3><p>${isPrivacy ? 'We use submitted contact information to respond to enquiries, deliver services, and improve communication. We do not sell personal information.' : 'By using this website or engaging our services, you agree to work with us under clear project terms, payment terms, and responsible website usage.'}</p><p>For questions, email <a href="mailto:hello@klickkk.com">hello@klickkk.com</a>.</p></div></div></section>`
   });
 }
 
@@ -386,7 +423,7 @@ function notFoundPage() {
   return pageShell({
     title: 'Page Not Found - Klickkk Digital',
     description: 'The requested page could not be found.',
-    body: pageHero({ title: 'Page Not Found', badge: '404', description: 'The page you are looking for does not exist.', current: '404' })
+    body: `<section class="section page-first-section"><div class="container"><div class="section-head"><div class="section-chip">404</div><h2>Page Not Found</h2><p>The page you are looking for does not exist.</p></div></div></section>`
   });
 }
 
@@ -396,6 +433,9 @@ module.exports = {
   servicesPage,
   servicePage,
   contactPage,
+  projectsPage,
+  blogsPage,
+  reviewsPage,
   simplePage,
   legalPage,
   notFoundPage

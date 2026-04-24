@@ -82,6 +82,7 @@ function staggerReveal(selector, baseDelay = 80) {
   Object.values(groups).forEach(group => {
     group.forEach((el, i) => {
       el.dataset.delay = i * baseDelay;
+      el.dataset.revealObserved = 'true';
       revealObserver.observe(el);
     });
   });
@@ -94,7 +95,21 @@ staggerReveal('.feat',       80);
 
 /* standalone reveals */
 document.querySelectorAll('.why-left, .cta-content').forEach(el => {
+  el.dataset.revealObserved = 'true';
   revealObserver.observe(el);
+});
+
+document.querySelectorAll('.reveal:not([data-reveal-observed="true"])').forEach(el => {
+  el.dataset.revealObserved = 'true';
+  revealObserver.observe(el);
+});
+
+document.querySelectorAll('.reveal').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    el.classList.add('visible');
+    revealObserver.unobserve(el);
+  }
 });
 
 /* ─── COUNTER OBSERVER ───────────────────────────────────── */

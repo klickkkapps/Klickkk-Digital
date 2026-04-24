@@ -9,6 +9,9 @@ const {
   servicesPage,
   servicePage,
   contactPage,
+  projectsPage,
+  blogsPage,
+  reviewsPage,
   simplePage,
   legalPage,
   notFoundPage
@@ -90,39 +93,27 @@ function serveFile(req, res, filePath) {
 }
 
 const serviceMap = new Map(services.map(service => [`/${service.slug}`, service]));
+const marketplaceService = services.find(service => service.slug === 'marketplaces-management');
+if (marketplaceService) serviceMap.set('/marketplace-management', marketplaceService);
 
 function renderRoute(pathname) {
   if (pathname === '/') return homePage();
-  if (pathname === '/about') return aboutPage();
+  if (pathname === '/about' || pathname === '/about-us') return aboutPage();
   if (pathname === '/services') return servicesPage();
-  if (pathname === '/contact') return contactPage();
-  if (pathname === '/privacy-policy') return legalPage('privacy');
-  if (pathname === '/terms-of-service') return legalPage('terms');
-  if (pathname === '/projects') {
-    return simplePage({
-      title: 'Projects',
-      badge: 'Work',
-      description: 'A focused look at how Klickkk Digital builds, launches, and improves growth campaigns.',
-      body: 'Project case studies can now be added from Node data instead of creating separate HTML files.',
-      reviewsBeforeFooter: true
-    });
-  }
+  if (pathname === '/contact' || pathname === '/contact-us') return contactPage();
+  if (pathname === '/privacy-policy' || pathname === '/policies/privacy-policy') return legalPage('privacy');
+  if (pathname === '/terms-of-service' || pathname === '/policies/terms-of-service') return legalPage('terms');
+  if (pathname === '/projects') return projectsPage();
   if (pathname === '/academy') {
     return simplePage({
       title: 'Academy',
       badge: 'Learning',
       description: 'Practical digital marketing learning from the Klickkk Digital team.',
-      body: 'Academy content can be managed as JavaScript data and rendered through the shared Node layout.'
+      body: 'Practical lessons, frameworks, and digital marketing resources from the Klickkk Digital team.'
     });
   }
-  if (pathname === '/blogs') {
-    return simplePage({
-      title: 'Blogs',
-      badge: 'Insights',
-      description: 'Digital marketing ideas, guides, and updates from Klickkk Digital.',
-      body: 'Blog entries can be added as structured Node data without duplicating page HTML.'
-    });
-  }
+  if (pathname === '/reviews') return reviewsPage();
+  if (pathname === '/blogs') return blogsPage();
   if (serviceMap.has(pathname)) return servicePage(serviceMap.get(pathname));
   return null;
 }

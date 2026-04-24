@@ -12,7 +12,7 @@ const services = [
     process: ['Research', 'Shortlist', 'Collaborate', 'Report']
   },
   {
-    slug: 'marketplace-management',
+    slug: 'marketplaces-management',
     title: 'Marketplaces Management',
     shortTitle: 'Marketplace Management',
     description: "We optimize your site's structure, content, and keywords to rank higher on search engine results pages, increasing your chances of being discovered by potential customers.",
@@ -76,10 +76,11 @@ const services = [
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About', href: '/about-us' },
   { label: 'Services', href: '/services' },
   { label: 'Projects', href: '/projects' },
   { label: 'Academy', href: '/academy' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'Blogs', href: '/blogs' }
 ];
 
@@ -93,6 +94,7 @@ const socials = [
 ];
 
 const framerImages = {
+  footerLogo: 'https://framerusercontent.com/images/DJRLQssvka4ltKDQRGaRZJVJfI.png?height=513&width=1413',
   hero: 'https://framerusercontent.com/images/tVDg230sxN3guk1uVhxlFkIu1s.png?width=1500',
   stamp: 'https://framerusercontent.com/images/b4IW2nPWxHJ6UTAoq3A4u5d56ps.png?width=512',
   portraits: [
@@ -109,6 +111,11 @@ const framerImages = {
     'https://framerusercontent.com/images/4WtNsxV0y8qdMhrSAPWM99WmSpM.jpg?width=971',
     'https://framerusercontent.com/images/tpbW8SIi5ra8nVMEwdsyHi8dw.jpg?width=1000'
   ],
+  blogs: [
+    'https://framerusercontent.com/images/N1xmhoSfYxdo123jcROGRg29X4Y.png?width=1920&height=1080',
+    'https://framerusercontent.com/images/HWCL65p2lHhL3yvqZXWEcJSnlKM.png?width=1920&height=1080',
+    'https://framerusercontent.com/images/ZtJhBXlFAQMX7GllUSqLDHWqEYQ.png?width=1920&height=1080'
+  ],
   logos: [
     'https://framerusercontent.com/images/HtNOvy5spiFjxciDATmaZhCH9U.svg?width=132',
     'https://framerusercontent.com/images/YuN93JWcWdSzH0odGho5bcZyHOg.svg?width=186',
@@ -119,10 +126,30 @@ const framerImages = {
 };
 
 const caseStudies = [
-  ['&Balanced', "How Wordsmith Web Design Transformed a Copywriter's Portfolio"],
-  ['Acme Signs & Prints', "How Furry Friends Pet Grooming Elevated its Brand with Digital Marketing"],
-  ['Acme Stamp', "How Stellar Scripts Elevated a Videographer's Portfolio Website"],
-  ['Ancient Lost Remedy', "How Furry Friends Pet Grooming Elevated its Brand with Digital Marketing"]
+  {
+    client: '&Balanced',
+    title: "How Wordsmith Web Design Transformed a Copywriter's Portfolio",
+    image: 'https://framerusercontent.com/images/zCsWlZqG20gmR0iYicyO9zoOg0.jpg?width=971&height=971',
+    metrics: [['80%', 'Increase in inquiries']]
+  },
+  {
+    client: 'Acme Signs & Prints',
+    title: "How Furry Friends Pet Grooming Elevated its Brand with Digital Marketing",
+    image: 'https://framerusercontent.com/images/4WtNsxV0y8qdMhrSAPWM99WmSpM.jpg?width=971&height=971',
+    metrics: [['60%', 'Online bookings surged'], ['25%', 'Increase in repeat business']]
+  },
+  {
+    client: 'Acme Stamp',
+    title: "How Stellar Scripts Elevated a Videographer's Portfolio Website",
+    image: 'https://framerusercontent.com/images/UDxttKeT0c9Ju6za1EBtNrrx9jU.jpg?width=971&height=971',
+    metrics: [['40%', 'Increase in website traffic'], ['70%', 'Target keywords ranked']]
+  },
+  {
+    client: 'Ancient Lost Remedy',
+    title: "How Furry Friends Pet Grooming Elevated its Brand with Digital Marketing",
+    image: 'https://framerusercontent.com/images/4WtNsxV0y8qdMhrSAPWM99WmSpM.jpg?width=971&height=971',
+    metrics: [['60%', 'Online bookings surged'], ['25%', 'Increase in repeat business']]
+  }
 ];
 
 const testimonials = [
@@ -140,9 +167,24 @@ const pricingPlans = [
 ];
 
 const blogPosts = [
-  ['Nov 15, 2025', 'Insights', 'How Can Businesses Compete with Big Brands in a Digital World?'],
-  ['Feb 7, 2024', 'Insights', 'The Ultimate Guide to Choosing the Right Digital Marketing Agency'],
-  ['Feb 7, 2024', 'Insights', 'Top eCommerce Web Design Tips']
+  {
+    date: 'Nov 15, 2025',
+    category: 'Insights',
+    title: 'How Can Businesses Compete with Big Brands in a Digital World?',
+    image: 'https://framerusercontent.com/images/N1xmhoSfYxdo123jcROGRg29X4Y.png?width=1920&height=1080'
+  },
+  {
+    date: 'Feb 7, 2024',
+    category: 'Insights',
+    title: 'The Ultimate Guide to Choosing the Right Digital Marketing Agency',
+    image: 'https://framerusercontent.com/images/HWCL65p2lHhL3yvqZXWEcJSnlKM.png?width=1920&height=1080'
+  },
+  {
+    date: 'Feb 7, 2024',
+    category: 'Insights',
+    title: 'Top eCommerce Web Design Tips',
+    image: 'https://framerusercontent.com/images/ZtJhBXlFAQMX7GllUSqLDHWqEYQ.png?width=1920&height=1080'
+  }
 ];
 
 const faqs = [
