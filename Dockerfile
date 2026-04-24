@@ -7,7 +7,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/templates/default.conf.template
 
 # Copy static site files
-COPY index.html style.css script.js /usr/share/nginx/html/
+COPY *.html style.css script.js /usr/share/nginx/html/
 
 # Railway sets PORT env var — default to 8080 if not set
 ENV PORT=8080
