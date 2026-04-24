@@ -596,7 +596,7 @@ img, svg { display: block; }
 
 .kd-framer-hero::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   opacity: .35;
@@ -1957,8 +1957,8 @@ img, svg { display: block; }
 
 /* ─── REVEAL ANIMATIONS ──────────────────────────────────── */
 .reveal {
-  opacity: 1;
-  transform: none;
+  opacity: 0;
+  transform: translateY(28px);
   transition: opacity .65s var(--ease), transform .65s var(--ease);
 }
 .reveal.visible {
