@@ -33,7 +33,7 @@
     .policy-hero p {
       font-size: 17px;
       color: var(--text-muted);
-      max-width: 560px;
+      max-width: 600px;
     }
     .policy-meta {
       margin-top: 24px;
@@ -79,30 +79,39 @@
     .policy-toc a:hover { background: var(--bg-card); color: var(--text); }
 
     .policy-content h2 {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
-      margin: 60px 0 20px;
+      margin: 56px 0 18px;
       padding-top: 20px;
       border-top: 1px solid var(--border);
     }
     .policy-content h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
-    .policy-content h3 { font-size: 18px; font-weight: 600; margin: 28px 0 12px; }
+    .policy-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 10px; color: var(--text); }
     .policy-content p {
       font-size: 16px;
       color: var(--text-muted);
       line-height: 1.8;
       margin-bottom: 16px;
     }
-    .policy-content ul, .policy-content ol {
-      margin: 12px 0 20px 24px;
+    .policy-content ul {
+      list-style: none;
+      margin: 8px 0 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
-    .policy-content li {
+    .policy-content ul li {
       font-size: 16px;
       color: var(--text-muted);
       line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+    .policy-content ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
     }
     .policy-content a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
     .policy-content a:hover { opacity: .8; }
@@ -114,6 +123,20 @@
       margin: 24px 0;
     }
     .policy-highlight p { margin-bottom: 0; }
+    .contact-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-block p {
+      margin: 0;
+      font-size: 15px;
+    }
 
     @media (max-width: 900px) {
       .policy-layout { grid-template-columns: 1fr; gap: 48px; }
@@ -155,8 +178,8 @@
       </div>
       <div class="section-chip">Legal</div>
       <h1>Privacy <span class="accent">Policy</span></h1>
-      <p>We respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information.</p>
-      <p class="policy-meta">Last updated: April 2025 &nbsp;·&nbsp; Effective date: April 1, 2025</p>
+      <p>Klickkk is committed to protecting your privacy. This policy explains how we collect, use, disclose, and protect your personal information when you use our services.</p>
+      <p class="policy-meta">Effective Date: April 1, 2025</p>
     </div>
   </section>
 
@@ -169,126 +192,102 @@
         <aside class="policy-toc">
           <h4>Contents</h4>
           <ul>
-            <li><a href="#who-we-are">1. Who We Are</a></li>
-            <li><a href="#information-we-collect">2. Information We Collect</a></li>
-            <li><a href="#how-we-use">3. How We Use Your Data</a></li>
-            <li><a href="#sharing">4. Sharing Your Data</a></li>
-            <li><a href="#cookies">5. Cookies</a></li>
-            <li><a href="#data-retention">6. Data Retention</a></li>
-            <li><a href="#your-rights">7. Your Rights</a></li>
-            <li><a href="#security">8. Security</a></li>
-            <li><a href="#third-party">9. Third-Party Links</a></li>
-            <li><a href="#children">10. Children's Privacy</a></li>
-            <li><a href="#changes">11. Changes to This Policy</a></li>
-            <li><a href="#contact-us">12. Contact Us</a></li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#information-we-collect">1. Information We Collect</a></li>
+            <li><a href="#how-we-use">2. How We Use Your Information</a></li>
+            <li><a href="#sharing">3. How We Share Your Information</a></li>
+            <li><a href="#security">4. Data Security</a></li>
+            <li><a href="#your-rights">5. Your Rights and Choices</a></li>
+            <li><a href="#third-party">6. Third-Party Links</a></li>
+            <li><a href="#cookies">7. Cookies Policy</a></li>
+            <li><a href="#international">8. International Data Transfers</a></li>
+            <li><a href="#changes">9. Changes to This Policy</a></li>
+            <li><a href="#contact-us">10. Contact Us</a></li>
           </ul>
         </aside>
 
         <!-- Content -->
         <div class="policy-content">
 
-          <div class="policy-highlight">
-            <p>This Privacy Policy applies to all services provided by Klickkk Digital. By using our website or services, you agree to the collection and use of information in accordance with this policy.</p>
+          <h2 id="intro" style="border-top:none;padding-top:0;margin-top:0;">Introduction</h2>
+          <p>Klickkk ("Company," "we," "us," or "our") operates the website <strong>klickkk.com</strong> (the "Website"). We are committed to protecting the privacy of our clients, website visitors, and users ("you" or "your"). This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our services.</p>
+
+          <div class="contact-block">
+            <p><strong>Phone (India):</strong> <a href="tel:+919403891565">+91 9403 891 565</a></p>
+            <p><strong>Phone (USA):</strong> <a href="tel:+13023425049">+1 302 342 5049</a></p>
+            <p><strong>Address (India):</strong> Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</p>
+            <p><strong>Address (USA):</strong> 1041 N Dupont Hwy, Dover, Delaware, 19901 USA</p>
           </div>
 
-          <h2 id="who-we-are">1. Who We Are</h2>
-          <p>Klickkk Digital ("we", "us", or "our") is a full-service digital marketing agency headquartered in Delhi, India, with operations in the USA. We provide services including Influencer Marketing, Performance Marketing, SEO, Social Media Marketing, Marketplace Management, and Web Design & Development.</p>
-          <p>Our registered office is located at:</p>
-          <p>Martini Spaces, Unit 2, Garg Trade Center, Sector 11, Rohini, Delhi-110089, India</p>
-          <p>For any privacy-related enquiries, you can reach us at <a href="mailto:hello@klickkk.com">hello@klickkk.com</a>.</p>
+          <h2 id="information-we-collect">1. Information We Collect</h2>
 
-          <h2 id="information-we-collect">2. Information We Collect</h2>
-          <p>We collect information you provide directly to us and information gathered automatically when you use our website or services.</p>
-
-          <h3>Information You Provide</h3>
+          <h3>a. Information You Provide to Us</h3>
           <ul>
-            <li><strong>Contact details:</strong> Name, email address, phone number, and company name when you fill in a contact or enquiry form.</li>
-            <li><strong>Communications:</strong> Messages, emails, or other communications you send us.</li>
-            <li><strong>Business information:</strong> Details about your brand, marketing goals, and budget shared during consultations.</li>
+            <li>Name, email address, phone number, and business details when you inquire about our services.</li>
+            <li>Billing information when you purchase our services.</li>
+            <li>Any information you submit through forms on our Website.</li>
           </ul>
 
-          <h3>Information Collected Automatically</h3>
+          <h3>b. Information Collected Automatically</h3>
           <ul>
-            <li><strong>Usage data:</strong> Pages visited, time spent, links clicked, and referring URLs.</li>
-            <li><strong>Device data:</strong> Browser type, operating system, IP address, and device identifiers.</li>
-            <li><strong>Cookies and tracking technologies:</strong> See Section 5 for details.</li>
+            <li><strong>Log Data:</strong> Your IP address, browser type, pages visited, and time spent on our Website.</li>
+            <li><strong>Cookies and Tracking Technologies:</strong> We use cookies to enhance user experience, track website analytics, and personalise content.</li>
           </ul>
 
-          <h2 id="how-we-use">3. How We Use Your Data</h2>
-          <p>We use the information we collect for the following purposes:</p>
+          <h3>c. Information from Third Parties</h3>
+          <p>We may receive information from partners or third-party services that help us deliver our marketing solutions.</p>
+
+          <h2 id="how-we-use">2. How We Use Your Information</h2>
           <ul>
-            <li>To respond to your enquiries and provide our services.</li>
-            <li>To send you relevant information about our services, offers, and updates (with your consent).</li>
-            <li>To improve our website experience and tailor content to your interests.</li>
-            <li>To process transactions and manage client relationships.</li>
-            <li>To analyse website usage and measure the effectiveness of our marketing campaigns.</li>
-            <li>To comply with legal obligations and resolve disputes.</li>
+            <li>To provide and improve our digital marketing services.</li>
+            <li>To respond to inquiries and customer service requests.</li>
+            <li>To process payments and manage transactions.</li>
+            <li>To send promotional emails, newsletters, and marketing materials (you can opt out anytime).</li>
+            <li>To analyse website traffic and optimise user experience.</li>
           </ul>
 
-          <h2 id="sharing">4. Sharing Your Data</h2>
-          <p>We do not sell, trade, or rent your personal information to third parties. We may share your data in the following limited circumstances:</p>
+          <h2 id="sharing">3. How We Share Your Information</h2>
+          <p>We do not sell, rent, or trade your personal information. However, we may share your information in the following circumstances:</p>
           <ul>
-            <li><strong>Service providers:</strong> Trusted third-party vendors who assist us in operating our website and delivering services (e.g., email providers, CRM tools, analytics platforms). These parties are contractually bound to keep your data confidential.</li>
-            <li><strong>Legal requirements:</strong> When required to comply with a law, regulation, legal process, or enforceable governmental request.</li>
-            <li><strong>Business transfers:</strong> In the event of a merger, acquisition, or sale of assets, your data may be transferred to the acquiring entity.</li>
-            <li><strong>With your consent:</strong> For any purpose you explicitly agree to.</li>
+            <li><strong>With Service Providers:</strong> We work with third-party service providers who assist in website analytics, payment processing, and marketing campaigns.</li>
+            <li><strong>Legal Compliance:</strong> If required by law or to protect our rights, we may disclose information to law enforcement or regulatory authorities.</li>
+            <li><strong>Business Transfers:</strong> If Klickkk is involved in a merger, acquisition, or asset sale, your information may be transferred.</li>
           </ul>
 
-          <h2 id="cookies">5. Cookies</h2>
-          <p>Our website uses cookies and similar tracking technologies to enhance your browsing experience and gather analytical data.</p>
+          <h2 id="security">4. Data Security</h2>
+          <p>We implement industry-standard security measures to protect your personal data from unauthorised access, disclosure, or loss. However, no method of transmission over the internet is 100% secure.</p>
 
-          <h3>Types of Cookies We Use</h3>
+          <h2 id="your-rights">5. Your Rights and Choices</h2>
+          <p>Depending on your location, you may have the following rights:</p>
           <ul>
-            <li><strong>Essential cookies:</strong> Required for the website to function properly. These cannot be disabled.</li>
-            <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our website (e.g., Google Analytics).</li>
-            <li><strong>Marketing cookies:</strong> Used to deliver relevant advertising and track campaign performance.</li>
+            <li><strong>Access &amp; Correction:</strong> You can request access to your personal information and correct any inaccuracies.</li>
+            <li><strong>Opt-Out of Marketing:</strong> You can unsubscribe from marketing emails by clicking the "unsubscribe" link or contacting us.</li>
+            <li><strong>Data Deletion:</strong> You can request deletion of your data, subject to legal obligations.</li>
           </ul>
-          <p>You can control and manage cookies through your browser settings. Disabling certain cookies may affect the functionality of our website. For more information about cookies and how to opt out, visit <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener">allaboutcookies.org</a>.</p>
 
-          <h2 id="data-retention">6. Data Retention</h2>
-          <p>We retain your personal data only for as long as necessary to fulfil the purposes outlined in this policy, unless a longer retention period is required by law. When data is no longer needed, we securely delete or anonymise it.</p>
-          <p>Enquiry data is typically retained for 3 years. Client project data may be retained for up to 7 years for accounting and legal compliance purposes.</p>
+          <h2 id="third-party">6. Third-Party Links</h2>
+          <p>Our Website may contain links to third-party websites. We are not responsible for their privacy practices and encourage you to review their policies.</p>
 
-          <h2 id="your-rights">7. Your Rights</h2>
-          <p>Depending on your location, you may have the following rights regarding your personal data:</p>
-          <ul>
-            <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
-            <li><strong>Rectification:</strong> Request correction of inaccurate or incomplete data.</li>
-            <li><strong>Erasure:</strong> Request deletion of your personal data (subject to legal obligations).</li>
-            <li><strong>Restriction:</strong> Request that we restrict how we process your data.</li>
-            <li><strong>Portability:</strong> Request your data in a structured, machine-readable format.</li>
-            <li><strong>Objection:</strong> Object to processing based on legitimate interests or for direct marketing.</li>
-            <li><strong>Withdraw consent:</strong> Where processing is based on consent, withdraw it at any time.</li>
-          </ul>
-          <p>To exercise any of these rights, please contact us at <a href="mailto:hello@klickkk.com">hello@klickkk.com</a>. We will respond within 30 days.</p>
+          <h2 id="cookies">7. Cookies Policy</h2>
+          <p>We use cookies to improve our Website's functionality and user experience. You can manage cookie settings through your browser.</p>
 
-          <h2 id="security">8. Security</h2>
-          <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. These include:</p>
-          <ul>
-            <li>SSL/TLS encryption for all data transmitted via our website.</li>
-            <li>Access controls limiting who can view your data internally.</li>
-            <li>Regular security reviews and updates to our systems.</li>
-          </ul>
-          <p>While we take reasonable precautions, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security of your data.</p>
+          <h2 id="international">8. International Data Transfers</h2>
+          <p>Since we operate in both India and the USA, your data may be processed in both locations. We ensure appropriate safeguards are in place for international data transfers.</p>
 
-          <h2 id="third-party">9. Third-Party Links</h2>
-          <p>Our website may contain links to third-party websites, social media platforms, or partner sites. We are not responsible for the privacy practices of those sites and encourage you to review their privacy policies before providing any personal information.</p>
+          <h2 id="changes">9. Changes to This Privacy Policy</h2>
+          <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Effective Date."</p>
 
-          <h2 id="children">10. Children's Privacy</h2>
-          <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal data from children. If you believe we have inadvertently collected information from a minor, please contact us immediately and we will take steps to delete it.</p>
-
-          <h2 id="changes">11. Changes to This Policy</h2>
-          <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we make significant changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
-          <p>Your continued use of our website after any changes constitutes your acceptance of the updated policy.</p>
-
-          <h2 id="contact-us">12. Contact Us</h2>
-          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please reach out:</p>
-          <ul>
-            <li><strong>Email:</strong> <a href="mailto:hello@klickkk.com">hello@klickkk.com</a></li>
-            <li><strong>India:</strong> <a href="tel:+919403891565">+91 9403 891 565</a></li>
-            <li><strong>USA:</strong> <a href="tel:+13023425049">+1 302 342 5049</a></li>
-            <li><strong>Address:</strong> Martini Spaces, Unit 2, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
-          </ul>
+          <h2 id="contact-us">10. Contact Us</h2>
+          <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+          <div class="contact-block">
+            <p><strong>Klickkk Digital</strong></p>
+            <p><strong>Email:</strong> <a href="mailto:hello@klickkk.com">hello@klickkk.com</a></p>
+            <p><strong>Phone (India):</strong> <a href="tel:+919403891565">+91 9403 891 565</a></p>
+            <p><strong>Phone (USA):</strong> <a href="tel:+13023425049">+1 302 342 5049</a></p>
+            <p><strong>Address (India):</strong> Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</p>
+            <p><strong>Address (USA):</strong> 1041 N Dupont Hwy, Dover, Delaware, 19901 USA</p>
+          </div>
+          <p style="margin-top:28px;">By using our Website or services, you agree to the terms of this Privacy Policy.</p>
 
         </div>
       </div>
@@ -329,7 +328,7 @@
           <li><a href="mailto:hello@klickkk.com">hello@klickkk.com</a></li>
           <li><a href="tel:+919403891565">+91 9403 891 565</a></li>
           <li><a href="tel:+13023425049">+1 302 342 5049</a></li>
-          <li>Martini Spaces, Unit 2, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
+          <li>Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
         </ul></div>
       </div>
       <div class="footer-bottom">

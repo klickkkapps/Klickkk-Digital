@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms of Service — Klickkk Digital</title>
-  <meta name="description" content="Read Klickkk Digital's Terms of Service governing use of our website and digital marketing services."/>
+  <title>Terms &amp; Conditions — Klickkk Digital</title>
+  <meta name="description" content="Read Klickkk Digital's Terms &amp; Conditions governing use of our website and digital marketing services."/>
   <script>if(location.protocol!=='https:'&&location.hostname!=='localhost'){location.replace('https://www.klickkk.com'+location.pathname+location.search+location.hash);}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -33,7 +33,7 @@
     .policy-hero p {
       font-size: 17px;
       color: var(--text-muted);
-      max-width: 560px;
+      max-width: 600px;
     }
     .policy-meta {
       margin-top: 24px;
@@ -79,30 +79,39 @@
     .policy-toc a:hover { background: var(--bg-card); color: var(--text); }
 
     .policy-content h2 {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
-      margin: 60px 0 20px;
+      margin: 56px 0 18px;
       padding-top: 20px;
       border-top: 1px solid var(--border);
     }
     .policy-content h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
-    .policy-content h3 { font-size: 18px; font-weight: 600; margin: 28px 0 12px; }
+    .policy-content h3 { font-size: 17px; font-weight: 600; margin: 24px 0 10px; color: var(--text); }
     .policy-content p {
       font-size: 16px;
       color: var(--text-muted);
       line-height: 1.8;
       margin-bottom: 16px;
     }
-    .policy-content ul, .policy-content ol {
-      margin: 12px 0 20px 24px;
+    .policy-content ul {
+      list-style: none;
+      margin: 8px 0 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
-    .policy-content li {
+    .policy-content ul li {
       font-size: 16px;
       color: var(--text-muted);
       line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+    .policy-content ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
     }
     .policy-content a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
     .policy-content a:hover { opacity: .8; }
@@ -114,6 +123,20 @@
       margin: 24px 0;
     }
     .policy-highlight p { margin-bottom: 0; }
+    .contact-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-block p {
+      margin: 0;
+      font-size: 15px;
+    }
 
     @media (max-width: 900px) {
       .policy-layout { grid-template-columns: 1fr; gap: 48px; }
@@ -151,12 +174,12 @@
       <div class="breadcrumb">
         <a href="index.html">Home</a>
         <span class="sep">/</span>
-        <span class="current">Terms of Service</span>
+        <span class="current">Terms &amp; Conditions</span>
       </div>
       <div class="section-chip">Legal</div>
-      <h1>Terms of <span class="accent">Service</span></h1>
-      <p>Please read these terms carefully before using our website or engaging our services. By accessing our website you agree to be bound by these terms.</p>
-      <p class="policy-meta">Last updated: April 2025 &nbsp;·&nbsp; Effective date: April 1, 2025</p>
+      <h1>Terms &amp; <span class="accent">Conditions</span></h1>
+      <p>By accessing our website or engaging with our services, you agree to comply with these terms. Please read them carefully before using klickkk.com.</p>
+      <p class="policy-meta">Effective Date: April 1, 2025</p>
     </div>
   </section>
 
@@ -169,20 +192,18 @@
         <aside class="policy-toc">
           <h4>Contents</h4>
           <ul>
-            <li><a href="#acceptance">1. Acceptance of Terms</a></li>
-            <li><a href="#services">2. Our Services</a></li>
-            <li><a href="#eligibility">3. Eligibility</a></li>
-            <li><a href="#accounts">4. Client Accounts</a></li>
-            <li><a href="#payment">5. Fees &amp; Payment</a></li>
-            <li><a href="#intellectual-property">6. Intellectual Property</a></li>
+            <li><a href="#general">1. General Information</a></li>
+            <li><a href="#use">2. Use of Our Website</a></li>
+            <li><a href="#services">3. Services Offered</a></li>
+            <li><a href="#agreements">4. Project Agreements</a></li>
+            <li><a href="#payment">5. Payment Terms</a></li>
+            <li><a href="#ip">6. Intellectual Property</a></li>
             <li><a href="#confidentiality">7. Confidentiality</a></li>
-            <li><a href="#prohibited">8. Prohibited Uses</a></li>
-            <li><a href="#disclaimer">9. Disclaimer of Warranties</a></li>
-            <li><a href="#limitation">10. Limitation of Liability</a></li>
-            <li><a href="#termination">11. Termination</a></li>
-            <li><a href="#governing-law">12. Governing Law</a></li>
-            <li><a href="#changes">13. Changes to Terms</a></li>
-            <li><a href="#contact-us">14. Contact Us</a></li>
+            <li><a href="#liability">8. Limitation of Liability</a></li>
+            <li><a href="#termination">9. Termination of Services</a></li>
+            <li><a href="#third-party">10. Third-Party Links</a></li>
+            <li><a href="#changes">11. Changes to These Terms</a></li>
+            <li><a href="#contact-us">12. Contact Information</a></li>
           </ul>
         </aside>
 
@@ -190,119 +211,101 @@
         <div class="policy-content">
 
           <div class="policy-highlight">
-            <p>These Terms of Service ("Terms") govern your access to and use of the website located at <strong>www.klickkk.com</strong> and all digital marketing services provided by Klickkk Digital. By using our website or engaging our services, you agree to these Terms.</p>
+            <p>Welcome to Klickkk! These Terms &amp; Conditions govern your use of our website (<strong>klickkk.com</strong>) and the services we provide. By accessing our website or engaging with our services, you agree to comply with these terms. If you do not agree with any part of these Terms &amp; Conditions, please do not use our website or services.</p>
           </div>
 
-          <h2 id="acceptance">1. Acceptance of Terms</h2>
-          <p>By accessing or using our website, requesting a consultation, or entering into a service agreement with Klickkk Digital, you confirm that you have read, understood, and agree to be bound by these Terms of Service and our <a href="privacy-policy.html">Privacy Policy</a>.</p>
-          <p>If you do not agree to these Terms, please do not use our website or services.</p>
+          <h2 id="general">1. General Information</h2>
+          <div class="contact-block">
+            <p><strong>Company Name:</strong> Klickkk Digital</p>
+            <p><strong>Website:</strong> klickkk.com</p>
+            <p><strong>Phone (India):</strong> <a href="tel:+919403891565">+91 9403 891 565</a></p>
+            <p><strong>Phone (USA):</strong> <a href="tel:+13023425049">+1 302 342 5049</a></p>
+            <p><strong>Address (India):</strong> Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</p>
+            <p><strong>Address (USA):</strong> 1041 N Dupont Hwy, Dover, Delaware, 19901 USA</p>
+          </div>
 
-          <h2 id="services">2. Our Services</h2>
-          <p>Klickkk Digital provides a range of digital marketing services, including but not limited to:</p>
+          <h2 id="use">2. Use of Our Website</h2>
+          <p>By accessing or using our website, you agree to:</p>
           <ul>
-            <li>Influencer Marketing — strategy, talent identification, and campaign management.</li>
-            <li>Performance Marketing — paid advertising across Google, Meta, and other platforms.</li>
-            <li>Search Engine Optimization (SEO) — on-page, off-page, and technical SEO.</li>
-            <li>Social Media Marketing — content strategy, community management, and growth.</li>
-            <li>Marketplace Management — Amazon, Flipkart, and other e-commerce platforms.</li>
-            <li>Web Design &amp; Development — design, development, and digital experience.</li>
+            <li>Use the website in compliance with applicable laws and regulations.</li>
+            <li>Not engage in unauthorised access, data extraction, or any activity that may harm the website.</li>
+            <li>Not misuse the website for fraudulent or illegal activities.</li>
           </ul>
-          <p>The specific scope of services, deliverables, timelines, and fees will be detailed in a separate Service Agreement or Statement of Work ("SOW") signed between you and Klickkk Digital.</p>
+          <p>We reserve the right to suspend or terminate access to our website if we suspect any misuse.</p>
 
-          <h2 id="eligibility">3. Eligibility</h2>
-          <p>Our services are intended for businesses and individuals aged 18 or older. By using our services, you represent that you are at least 18 years of age and have the legal authority to enter into a binding agreement on behalf of yourself or the company you represent.</p>
-
-          <h2 id="accounts">4. Client Accounts &amp; Responsibilities</h2>
-          <p>When working with Klickkk Digital, you agree to:</p>
+          <h2 id="services">3. Services Offered</h2>
+          <p>Klickkk provides digital marketing services, including but not limited to:</p>
           <ul>
-            <li>Provide accurate, current, and complete information about your business and marketing objectives.</li>
-            <li>Promptly supply all creative assets, approvals, and access credentials required for campaign execution.</li>
-            <li>Ensure that any content, branding, or materials you provide do not infringe any third-party intellectual property rights or violate applicable laws.</li>
-            <li>Designate a primary point of contact responsible for timely approvals and communication.</li>
+            <li>SEO (Search Engine Optimisation)</li>
+            <li>Social Media Marketing</li>
+            <li>PPC (Pay-Per-Click) Advertising</li>
+            <li>Website Development &amp; Optimisation</li>
+            <li>Content Marketing</li>
+            <li>Branding &amp; Consultation</li>
           </ul>
-          <p>Delays caused by the client's failure to provide required materials or approvals on time may affect campaign timelines and results. Klickkk Digital shall not be held liable for such delays.</p>
+          <p>By engaging our services, you acknowledge that results may vary based on market conditions, competition, and other factors beyond our control.</p>
 
-          <h2 id="payment">5. Fees &amp; Payment</h2>
-          <p>All fees for services are as agreed in your Service Agreement or SOW. Unless otherwise stated:</p>
+          <h2 id="agreements">4. Project Agreements &amp; Terms</h2>
           <ul>
-            <li>Invoices are issued on a monthly basis or as per the agreed schedule.</li>
-            <li>Payment is due within 7 days of the invoice date unless otherwise agreed in writing.</li>
-            <li>Late payments may attract interest at the rate of 2% per month on the outstanding amount.</li>
-            <li>All prices are exclusive of applicable taxes (including GST in India), which will be added to invoices where required by law.</li>
-            <li>Klickkk Digital reserves the right to pause or suspend services if payments are not received within 14 days of the due date.</li>
+            <li><strong>Project-Specific Terms:</strong> The detailed terms, scope, deliverables, payment structure, and other conditions of individual projects will be outlined in a Project Agreement.</li>
+            <li><strong>Agreement Signing:</strong> The Project Agreement must be signed before the commencement of any project.</li>
+            <li><strong>Modifications:</strong> Any changes to the scope or terms of a project must be mutually agreed upon in writing.</li>
+          </ul>
+          <p>Until the Project Agreement is signed, Klickkk is not obligated to provide any services.</p>
+
+          <h2 id="payment">5. Payment Terms</h2>
+          <ul>
+            <li>Payment terms for services will be outlined in the respective Project Agreement.</li>
+            <li>All payments must be made as per the agreed schedule in the project agreement.</li>
+            <li>Late payments may result in project delays or additional charges.</li>
+            <li>Klickkk reserves the right to suspend or terminate services in case of non-payment.</li>
           </ul>
 
-          <h3>Refund Policy</h3>
-          <p>As our services involve significant time and resource investment, fees paid for work already commenced are generally non-refundable. Refund requests for advance payments will be assessed on a case-by-case basis. Any approved refund will be processed within 10 business days.</p>
-
-          <h2 id="intellectual-property">6. Intellectual Property</h2>
-
-          <h3>Our Property</h3>
-          <p>All content on this website — including text, graphics, logos, images, and software — is the property of Klickkk Digital and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our explicit written permission.</p>
-
-          <h3>Client Property</h3>
-          <p>You retain ownership of all materials, content, and data you provide to us. By providing such materials, you grant Klickkk Digital a non-exclusive, royalty-free licence to use them solely for the purpose of providing agreed services.</p>
-
-          <h3>Deliverables</h3>
-          <p>Upon receipt of full payment, you will own all custom deliverables created specifically for you under a Service Agreement. Third-party licences (fonts, stock images, software) remain subject to their respective licence terms.</p>
-          <p>Klickkk Digital retains the right to display completed work as part of our portfolio unless you request otherwise in writing.</p>
+          <h2 id="ip">6. Intellectual Property</h2>
+          <ul>
+            <li>Any content, designs, or marketing materials created by Klickkk remain the property of Klickkk until full payment is received.</li>
+            <li>Once payment is completed, ownership of deliverables will be transferred to the client as per the terms of the Project Agreement.</li>
+            <li>Clients are prohibited from reselling, redistributing, or modifying our work without prior consent.</li>
+          </ul>
 
           <h2 id="confidentiality">7. Confidentiality</h2>
-          <p>Both parties agree to keep confidential any non-public information shared during the course of the engagement, including business strategies, financial information, campaign data, and client lists. This obligation survives termination of the service relationship for a period of 2 years.</p>
-          <p>Confidentiality obligations do not apply to information that is publicly available, independently developed, or required to be disclosed by law.</p>
+          <p>Both parties agree to keep confidential any sensitive business information shared during the course of the project. Klickkk will not disclose client information to third parties without prior consent, except as required by law.</p>
 
-          <h2 id="prohibited">8. Prohibited Uses</h2>
-          <p>You agree not to use our website or services to:</p>
+          <h2 id="liability">8. Limitation of Liability</h2>
           <ul>
-            <li>Violate any applicable law, regulation, or third-party rights.</li>
-            <li>Promote illegal, harmful, fraudulent, or misleading content.</li>
-            <li>Infringe the intellectual property rights of any party.</li>
-            <li>Transmit spam, malware, or other malicious code.</li>
-            <li>Scrape, crawl, or systematically extract data from our website without permission.</li>
-            <li>Interfere with or disrupt the integrity or performance of our website or systems.</li>
-            <li>Impersonate any person or entity, or falsely represent your affiliation with any person or entity.</li>
+            <li>Klickkk is not liable for any loss of revenue, profits, or business due to delays, performance issues, or external factors beyond our control.</li>
+            <li>We are not responsible for damages resulting from website downtime, security breaches, or third-party actions.</li>
+            <li>We are not liable for inaccuracies in third-party data or analytics tools used for marketing strategies.</li>
+            <li>Our liability, if any, shall be limited to the amount paid by the client for the specific service in question.</li>
           </ul>
 
-          <h2 id="disclaimer">9. Disclaimer of Warranties</h2>
-          <p>Our website and services are provided on an "as is" and "as available" basis. Klickkk Digital makes no warranties, express or implied, including but not limited to:</p>
+          <h2 id="termination">9. Termination of Services</h2>
+          <p>Klickkk reserves the right to terminate a project or engagement under the following conditions:</p>
           <ul>
-            <li>Guarantees of specific marketing results, rankings, or revenue outcomes.</li>
-            <li>Uninterrupted or error-free operation of our website or services.</li>
-            <li>Accuracy or completeness of any content or data on our website.</li>
+            <li>Violation of these Terms &amp; Conditions.</li>
+            <li>Failure to make payments as per the agreed schedule.</li>
+            <li>Client misconduct, including abusive or unethical behaviour.</li>
+            <li>Any legal or regulatory non-compliance that impacts the project.</li>
           </ul>
-          <p>Digital marketing results depend on many factors outside our control, including platform algorithm changes, market conditions, and client-side execution. While we strive to deliver the best results, no specific outcomes can be guaranteed.</p>
+          <p>In case of termination, all outstanding payments must be cleared immediately.</p>
 
-          <h2 id="limitation">10. Limitation of Liability</h2>
-          <p>To the maximum extent permitted by applicable law, Klickkk Digital shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services or website, including but not limited to loss of profits, data, or goodwill.</p>
-          <p>In no event shall our total liability to you for any claims arising under these Terms exceed the total fees paid by you to Klickkk Digital in the 3 months preceding the claim.</p>
+          <h2 id="third-party">10. Third-Party Links &amp; Services</h2>
+          <p>Our website may contain links to third-party websites or services. We are not responsible for their content, privacy policies, or practices. Users are encouraged to review third-party terms before engaging with them.</p>
 
-          <h2 id="termination">11. Termination</h2>
-          <p>Either party may terminate a service engagement by providing written notice as specified in the applicable Service Agreement. Unless otherwise stated, a 30-day written notice period applies.</p>
-          <p>Upon termination:</p>
-          <ul>
-            <li>All outstanding fees for work completed become immediately due and payable.</li>
-            <li>Klickkk Digital will deliver all completed work and return client assets within 14 business days.</li>
-            <li>Access to any platforms or accounts managed on your behalf will be transferred back to you.</li>
-          </ul>
-          <p>Klickkk Digital reserves the right to immediately terminate services without notice if you breach these Terms, fail to make payment, or engage in conduct we reasonably determine to be harmful or unethical.</p>
+          <h2 id="changes">11. Changes to These Terms</h2>
+          <p>Klickkk reserves the right to update or modify these Terms &amp; Conditions at any time. Any changes will be posted on this page with an updated "Effective Date."</p>
+          <p>Continued use of our website or services after any changes constitutes acceptance of the new terms.</p>
 
-          <h2 id="governing-law">12. Governing Law &amp; Dispute Resolution</h2>
-          <p>These Terms are governed by and construed in accordance with the laws of India. Any disputes arising under these Terms shall first be attempted to be resolved through good-faith negotiation between the parties.</p>
-          <p>If a dispute cannot be resolved within 30 days of written notice, it shall be subject to the exclusive jurisdiction of the courts located in Delhi, India.</p>
-          <p>For clients based in the USA, disputes may also be resolved through binding arbitration under the rules of the American Arbitration Association, at either party's election.</p>
-
-          <h2 id="changes">13. Changes to These Terms</h2>
-          <p>We reserve the right to update these Terms at any time. When we make material changes, we will update the "Last updated" date at the top of this page. For existing clients, we will notify you of significant changes via email.</p>
-          <p>Your continued use of our website or services after any changes constitutes your acceptance of the revised Terms.</p>
-
-          <h2 id="contact-us">14. Contact Us</h2>
-          <p>If you have any questions about these Terms of Service, please contact us:</p>
-          <ul>
-            <li><strong>Email:</strong> <a href="mailto:hello@klickkk.com">hello@klickkk.com</a></li>
-            <li><strong>India:</strong> <a href="tel:+919403891565">+91 9403 891 565</a></li>
-            <li><strong>USA:</strong> <a href="tel:+13023425049">+1 302 342 5049</a></li>
-            <li><strong>Address:</strong> Martini Spaces, Unit 2, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
-          </ul>
+          <h2 id="contact-us">12. Contact Information</h2>
+          <p>If you have any questions about these Terms &amp; Conditions, you can contact us at:</p>
+          <div class="contact-block">
+            <p><strong>Email:</strong> <a href="mailto:hello@klickkk.com">hello@klickkk.com</a></p>
+            <p><strong>Phone (India):</strong> <a href="tel:+919403891565">+91 9403 891 565</a></p>
+            <p><strong>Phone (USA):</strong> <a href="tel:+13023425049">+1 302 342 5049</a></p>
+            <p><strong>Address (India):</strong> Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</p>
+            <p><strong>Address (USA):</strong> 1041 N Dupont Hwy, Dover, Delaware, 19901 USA</p>
+          </div>
+          <p style="margin-top:28px;">By using our website or engaging in our services, you acknowledge that you have read, understood, and agreed to these Terms &amp; Conditions.</p>
 
         </div>
       </div>
@@ -343,7 +346,7 @@
           <li><a href="mailto:hello@klickkk.com">hello@klickkk.com</a></li>
           <li><a href="tel:+919403891565">+91 9403 891 565</a></li>
           <li><a href="tel:+13023425049">+1 302 342 5049</a></li>
-          <li>Martini Spaces, Unit 2, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
+          <li>Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
         </ul></div>
       </div>
       <div class="footer-bottom">
