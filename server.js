@@ -77,6 +77,12 @@ function normalizeFramerPath(pathname) {
   return aliases.get(pathname) || pathname;
 }
 
+function cleanFramerHtml(html) {
+  return html
+    .replace(/<div id="__framer-badge-container"[\s\S]*?<\/div>/g, '')
+    .replace(/<[^>]*href="https:\/\/framer\.com\/[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '');
+}
+
 function fetchFramerHtml(pathname, search = '', redirects = 0) {
   const framerPath = normalizeFramerPath(pathname);
   const cacheKey = `${framerPath}${search}`;
@@ -115,6 +121,7 @@ function fetchFramerHtml(pathname, search = '', redirects = 0) {
         html += chunk;
       });
       response.on('end', () => {
+        html = cleanFramerHtml(html);
         framerCache.set(cacheKey, { html, createdAt: Date.now() });
         resolve(html);
       });
