@@ -114,12 +114,35 @@ document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
 const sections = document.querySelectorAll('section[id], div[id]');
 const navItems = document.querySelectorAll('.nav-link');
 
+function syncActiveNav(currentHash = window.location.hash) {
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  navItems.forEach(link => {
+    const url = new URL(link.getAttribute('href'), window.location.origin);
+    const linkPath = url.pathname.replace(/\/$/, '') || '/';
+    const isActive = url.hash
+      ? currentPath === linkPath && currentHash === url.hash
+      : currentPath === linkPath;
+    link.classList.toggle('active', isActive);
+  });
+}
+
+syncActiveNav();
+window.addEventListener('hashchange', () => syncActiveNav());
+
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const id = entry.target.id;
-    navItems.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    const linkData = Array.from(navItems, link => {
+      const url = new URL(link.getAttribute('href'), window.location.origin);
+      const linkPath = url.pathname.replace(/\/$/, '') || '/';
+      const isHomeSection = id === 'home' && currentPath === '/' && linkPath === '/' && !url.hash;
+      return { link, isActive: isHomeSection || (currentPath === linkPath && url.hash === `#${id}`) };
+    });
+    if (!linkData.some(item => item.isActive)) return;
+    linkData.forEach(({ link, isActive }) => {
+      link.classList.toggle('active', isActive);
     });
   });
 }, { threshold: 0.4 });

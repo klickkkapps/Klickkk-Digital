@@ -16,16 +16,18 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo"><span class="logo-k">Klickkk</span><span class="logo-d">Digital</span></a>
+      <a href="/" class="logo"><span class="logo-k">Klickkk</span><span class="logo-d">Digital</span></a>
       <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#services" class="nav-link">Services</a>
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="index.html#process" class="nav-link">Process</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="/" class="nav-link">Home</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/projects" class="nav-link">Projects</a>
+        <a href="/#reviews" class="nav-link">Reviews</a>
+        <a href="/academy" class="nav-link">Academy</a>
+        <a href="/blogs" class="nav-link">Blogs</a>
       </div>
       <div class="nav-right">
-        <a href="contact.html" class="btn btn-primary">Get Started</a>
+        <a href="/contact" class="btn btn-primary">Get Started</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -35,7 +37,7 @@
   <section class="svc-page-hero">
     <div class="container">
       <div class="breadcrumb">
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <span class="sep">/</span>
         <span class="current">Contact Us</span>
       </div>
@@ -193,45 +195,88 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo"><span class="logo-k">Klickkk</span><span class="logo-d">Digital</span></a>
-          <p>India's premier digital marketing agency. We grow brands with data-driven strategies and creative excellence.</p>
-          <div class="socials">
-            <a href="#" class="social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-            <a href="#" class="social" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
-            <a href="#" class="social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" rx="1"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/><path d="M8 12.5C8 10.5 9.5 9 11.5 9 13.5 9 16 10 16 13v8h-4v-7a2 2 0 0 0-4 0v7H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
-            <a href="#" class="social" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9l6 3-6 3V9z" fill="currentColor"/></svg></a>
+  <footer class="footer framer-footer">
+    <div class="container framer-footer-inner">
+      <div class="framer-footer-nav-card">
+        <a href="/" class="footer-logo"><span class="logo-k">Klickkk</span><span class="logo-d">Digital</span></a>
+        <nav class="framer-footer-nav" aria-label="Footer navigation">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a href="/services">Services</a>
+          <a href="/projects">Projects</a>
+          <a href="/academy">Academy</a>
+          <a href="/#reviews">Reviews</a>
+          <a href="/blogs">Blogs</a>
+        </nav>
+      </div>
+
+      <div class="framer-footer-kicker">Get In Touch</div>
+
+      <div class="framer-footer-main">
+        <form class="framer-footer-form" action="https://formsubmit.co/hello@klickkk.com" method="POST">
+          <input type="hidden" name="_subject" value="New Footer Enquiry from Klickkk Digital Website"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="text" name="_honey" style="display:none"/>
+          <h2>LET&apos;S<br/>TALK</h2>
+          <label>
+            <span>Name</span>
+            <input type="text" name="Name" placeholder="Jane Smith" required/>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="Email" placeholder="jane.com" required/>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="Message" placeholder="Write your message" required></textarea>
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+
+        <div class="framer-footer-info">
+          <div class="framer-footer-services">
+            <h5>Services</h5>
+            <a href="/influencer-marketing">Influencer Marketing</a>
+            <a href="/marketplace-management">Marketplace Management</a>
+            <a href="/performance-marketing">Performance Marketing</a>
+            <a href="/search-engine-optimization">Search Engine Optimization (SEO)</a>
+            <a href="/social-media-marketing">Social Media Marketing</a>
+            <a href="/web-design-development">Web Design &amp; Development</a>
+          </div>
+
+          <div class="framer-contact-grid">
+            <a class="framer-contact-card" href="mailto:hello@klickkk.com">HELLO@KLICKKK.COM</a>
+            <div class="framer-contact-card framer-contact-stack">
+              <a href="tel:+919403891565">INDIA: +91 9403 891 565</a>
+              <a href="tel:+13023425049">USA: +1 302 342 5049</a>
+            </div>
+            <div class="framer-contact-card framer-contact-stack framer-address-card">
+              <a href="https://share.google/jX4Kh93XlyLv12AoE" target="_blank" rel="noopener">INDIA: MARTINI SPACES, UNIT 2, GARG TRADE CENTER, SECTOR 11, ROHINI, DELHI-110089</a>
+              <span>USA: 1041 N DUPONT HWY, DOVER, DELAWARE 19901, USA</span>
+            </div>
           </div>
         </div>
-        <div class="footer-col"><h4>Services</h4><ul>
-          <li><a href="influencer-marketing.html">Influencer Marketing</a></li>
-          <li><a href="marketplace-management.html">Marketplace Management</a></li>
-          <li><a href="performance-marketing.html">Performance Marketing</a></li>
-          <li><a href="search-engine-optimization.html">SEO</a></li>
-          <li><a href="social-media-marketing.html">Social Media Marketing</a></li>
-          <li><a href="web-design-development.html">Web Design &amp; Development</a></li>
-        </ul></div>
-        <div class="footer-col"><h4>Company</h4><ul>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="academy.html">Academy</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">Blogs</a></li>
-        </ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul>
-          <li><a href="mailto:hello@klickkk.com">hello@klickkk.com</a></li>
-          <li><a href="tel:+919403891565">+91 9403 891 565</a></li>
-          <li><a href="tel:+13023425049">+1 302 342 5049</a></li>
-          <li>Martini Spaces, Garg Trade Center, Sector 11, Rohini, Delhi-110089</li>
-        </ul></div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Klickkk Digital. All rights reserved.</p>
-        <div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a></div>
+
+      <div class="framer-social-card">
+        <h5>Follow us:</h5>
+        <div class="framer-social-links">
+          <a href="https://www.facebook.com/klickdigital4" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+          <a href="https://www.instagram.com/klickkk.digital" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+          <a href="https://x.com/klickkk_digital" target="_blank" rel="noopener" aria-label="X">X</a>
+          <a href="https://www.threads.net/klickkk.digital/" target="_blank" rel="noopener" aria-label="Threads">Th</a>
+          <a href="https://www.linkedin.com/company/klickkkdigital" target="_blank" rel="noopener" aria-label="LinkedIn">In</a>
+          <a href="https://in.pinterest.com/klickkkdigital" target="_blank" rel="noopener" aria-label="Pinterest">Pi</a>
+        </div>
+      </div>
+
+      <div class="framer-footer-bottom-card">
+        <p>Copyright © 2025 | <a href="/">Klickkk Digital</a> | All Rights Reserved</p>
+        <div>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-of-service">Terms Of Service</a>
+        </div>
       </div>
     </div>
   </footer>
